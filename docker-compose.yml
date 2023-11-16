@@ -25,7 +25,7 @@ services:
       PGPASSWORD: ${PG_PASSWORD}
       PGUSER: ${PG_USER}
     ports:
-      - ${BD_PORT}:5432
+      - ${DB_PORT}:5432
   pgadmin4:
     container_name: forum_pgadmin4
     image: dpage/pgadmin4
