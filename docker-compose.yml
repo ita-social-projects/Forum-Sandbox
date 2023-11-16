@@ -20,8 +20,8 @@ services:
     environment:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
-      POSTGRES_DB: db
-      PGDATABASE: db
+      POSTGRES_DB: ${PG_DB}
+      PGDATABASE: ${PG_DB}
       PGPASSWORD: ${PG_PASSWORD}
       PGUSER: ${PG_USER}
     ports:
