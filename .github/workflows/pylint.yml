@@ -3,7 +3,7 @@ name: Pylint Check
 on:
   push:
     branches:
-      - "#6Code_conven_pylint  # Змініть цю гілку на ту, яку ви використовуєте
+      - "#6Code_conven_pylint"  # Змініть цю гілку на ту, яку ви використовуєте
 
 jobs:
   lint_backend:
