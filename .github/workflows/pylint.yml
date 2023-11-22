@@ -1,0 +1,26 @@
+name: Pylint Check
+
+on:
+  push:
+    branches:
+      - develop  # Змініть цю гілку на ту, яку ви використовуєте
+
+jobs:
+  lint_backend:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x  # Ви можете вказати потрібну версію Python
+
+    - name: Install dependencies
+      run: pip install pylint
+
+    - name: Run Pylint
+      run: |
+        pylint administration authentification search profiles forum_sandbox
