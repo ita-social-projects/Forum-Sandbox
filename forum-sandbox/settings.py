@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     "authentication",
     "profiles",
     "administration",
-    "search",
+    #"search",
 ]
 
 MIDDLEWARE = [
@@ -202,6 +202,10 @@ DJOSER = {
     },
 }
 
+try:
+    from .__local_settings import *
+except ImportError:
+    pass
 
 def running_tests():
     import sys
