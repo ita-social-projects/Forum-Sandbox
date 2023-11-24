@@ -1,22 +1,16 @@
 dev
-## JIRA
+## Issue
 
-* [Main JIRA ticket](https://jira.softserve.academy/secure/RapidBoard.jspa?rapidView=id)
+* Link issue (task, story)
 
 
 ## Code reviewers
 
 - [ ] @github_username
-
-### Second Level Review
-
+- [ ] @github_username
 - [ ] @github_username
 
 ## Summary of issue
-
-ToDo
-
-## Summary of change
 
 ToDo
 
