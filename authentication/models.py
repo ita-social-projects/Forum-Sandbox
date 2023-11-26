@@ -1,5 +1,3 @@
-import datetime
-
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.models import PermissionsMixin
@@ -34,7 +32,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     Basic user class
     """
     password = models.CharField(max_length=255)
-    last_login = models.DateTimeField(auto_now=datetime.datetime.now())
+    last_login = models.DateTimeField(auto_now=True)
     email = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=20)
     surname = models.CharField(max_length=20)
