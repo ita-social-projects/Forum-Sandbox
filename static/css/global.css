@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
+
+ :root {
+     --text-color: #333333;
+     --icons-color: #599673;
+     --title-color: #f98250;
+     --background-color: #ffffff;
+     --background-color-zoom:rgba(0,0,0,0.4);
+     --fields-border-color: #d0d0d0;
+     --description-color: #848484;
+     --contact-form-color: rgba(40, 37, 32, 0.8);
+     --contact-form-name-color: rgba(255, 255, 255, 0.24);
+     --rentals-description-color: #bdbdbd;
+     --fields-background-color: #f5f5f5;
+     --form_outline-color: #3b99fc;
+     --description-alternative-color: #ffffff;     
+     --description-font-family: 'Roboto', sans-serif;
+     --title-font-family: 'Poppins', serif;
+
+     --App-link: #61dafb;
+     --1background: #0B6C61;
+     --colorvv: #FFF;
+     --background-color1: #282c34;
+     font-family: 'inter', serif;
+     scroll-behavior: smooth;
+ }
+
+ .container {
+     max-width: 1200px;
+     margin: auto;
+ }
+
+ img {
+     display: block;
+     width: 100%;
+ }
+
+ a {
+     text-decoration: none;
+ }
+
+ h1 {
+     font-family: var(--title-font-family);
+     font-weight: normal;
+ }
+
+ h2 {
+     font-family: var(--title-font-family);
+     font-weight: normal;
+ }
+
+ input {
+    font-family: var(--description-font-family);    
+}
+
+ p {
+     max-width: 644px;
+ }
