@@ -20,7 +20,7 @@ class Profile(models.Model):
     address = models.TextField()
     startup_idea = models.TextField()
     is_deleted = models.BooleanField(default=False)
-    person_id = models.OneToOneField(CustomUser, on_delete=models.PROTECT)
+    person_id = models.ForeignKey(CustomUser, on_delete=models.PROTECT)
 
 
 class ProfilesActivity(models.Model):
