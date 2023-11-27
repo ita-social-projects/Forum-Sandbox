@@ -48,15 +48,12 @@ class ProfilesRegion(models.Model):
     name_ua = models.CharField(max_length=128)
 
 class ProfilesProfileRegion(models.Model):
-    profile = models.ForeignKey('ProfilesProfile', on_delete=models.CASCADE)
+    profile = models.ForeignKey('Profile', on_delete=models.CASCADE)
     region = models.ForeignKey('ProfilesRegion', on_delete=models.CASCADE)
     is_official = models.BooleanField(default=False)
 
-class ProfilesCategory(models.Model):
-    name = models.CharField(max_length=50)
-
 class ProfilesProfileCategories(models.Model):
-    profile = models.ForeignKey('ProfilesProfile', on_delete=models.CASCADE)
+    profile = models.ForeignKey('Profile', on_delete=models.CASCADE)
     category = models.ForeignKey('ProfilesCategory', on_delete=models.CASCADE)
 
 
