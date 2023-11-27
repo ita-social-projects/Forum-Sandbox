@@ -88,7 +88,7 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     "Content-Type",
 ]
 
-ROOT_URLCONF = "forum.urls"
+ROOT_URLCONF = "forum-sandbox.urls"
 
 TEMPLATES = [
     {
@@ -106,7 +106,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "forum.wsgi.application"
+WSGI_APPLICATION = "forum-sandbox.wsgi.application"
 
 DATABASES = {
     "default": {
@@ -163,7 +163,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public", "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-AUTH_USER_MODEL = "authentication.CustomUser"
+#AUTH_USER_MODEL = "authentication.CustomUser"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
