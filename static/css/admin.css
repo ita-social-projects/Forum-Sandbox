@@ -1,4 +1,5 @@
 /* Start */
 
 .box_form {
-color: #adb3b9;}
+    color: var(--background-color-header);
+}
