@@ -27,20 +27,19 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self.create_user(email, password, **extra_fields)
 
-class CustomUser(AbstractBaseUser, PermissionsMixin):
+class CustomUser(AbstractBaseUser):#, PermissionsMixin):
     """
     Basic user class
     """
     password = models.CharField(max_length=255)
     last_login = models.DateTimeField(auto_now=True)
-    email = models.CharField(max_length=100, unique=True)
+    email = models.EmailField(max_length=50, unique=True)
     name = models.CharField(max_length=20)
     surname = models.CharField(max_length=20)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
-    groups = models.ManyToManyField('auth.Group', related_name='custom_user_set')
-    user_permissions = models.ManyToManyField('auth.Permission', related_name='custom_user_set')
+
 
     USERNAME_FIELD = 'email'
     objects = CustomUserManager()
