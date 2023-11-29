@@ -39,6 +39,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
+    groups = models.ManyToManyField('auth.Group', related_name='custom_user_set')
+    user_permissions = models.ManyToManyField('auth.Permission', related_name='custom_user_set')
 
     USERNAME_FIELD = 'email'
     objects = CustomUserManager()
