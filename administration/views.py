@@ -2,7 +2,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import check_password
 from django.shortcuts import render, redirect
 from .forms import LoginForm
-#from .models import CustomUser
+from django.contrib.auth.decorators import login_required
+
 
 
 def logon_admin(request):
@@ -17,10 +18,7 @@ def logon_admin(request):
             if user is not None and user.is_active :
              
                 login(request, user)
-                if user.role == 0:
-                    role_select = 'user_panel'
-                elif user.role == 1:
-                    role_select = 'admin_panel'
+                role_select = 'info'
                 return redirect(f'{role_select}')
             else:
                 messages = 'User or password incorect'
@@ -33,3 +31,7 @@ def logon_admin(request):
     }
     
     return render(request, 'admin.html', content)
+
+@login_required
+def info(request):
+    return render(request,'admin_info.html')
