@@ -165,11 +165,19 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "authentication.CustomUser"
 
+# REST_FRAMEWORK = {
+#     "DEFAULT_AUTHENTICATION_CLASSES": (
+#         "authentication.authentication.DjoserTokenAuthentication",
+#     ),
+#     "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+# }
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "authentication.authentication.DjoserTokenAuthentication",
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
     ),
-    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
 }
 
 TOKEN_EXPIRATION_TIME = timedelta(days=14)
@@ -202,10 +210,6 @@ DJOSER = {
     },
 }
 
-try:
-    from .__local_settings import *
-except ImportError:
-    pass
 
 def running_tests():
     import sys
