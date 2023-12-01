@@ -48,3 +48,7 @@ input {
 p {
     max-width: 644px;
 }
+
+nav {
+    background-color: #555;
+}
