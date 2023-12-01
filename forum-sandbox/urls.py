@@ -18,7 +18,7 @@ from django.urls import include, path
 from .views import MainPageView
 
 urlpatterns = [
-    path('main_page/', MainPageView.as_view(), name='main_page'),
+    path('api/main_page/', MainPageView.as_view(), name='main_page'),
     # path("admin/", admin.site.urls),
     # path("api/", include("authentication.urls", namespace="authentication")),
     # path("api/", include("profiles.urls", namespace="profiles")),
