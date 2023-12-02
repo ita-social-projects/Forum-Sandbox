@@ -11,9 +11,12 @@
     --description-font-family: 'inter', serif;
     --App-link: #61dafb;
     --background-color-header: #0B6C61;
-    --colorvv: #FFF;
+    --background-color-form: #0B6C61;
+    --color-text-form: #FFF;
+    --color-text-navbar: #FFF;
     --background-color1: #282c34;
     --font-family: 'inter', serif;
+    --color-text-footer: #FFF;
 
 }
 
@@ -50,5 +53,22 @@ p {
 }
 
 nav {
-    background-color: #555;
+    background-color: var(--background-color-header);
+    font-family: var(--title-font-family);
+    block-size: auto;
+}
+
+.nav_a {
+    color: var(--color-text-navbar);
+    font-family: var(--title-font-family);
+    font-size: 16px;
+    margin: 10px;
+}
+
+footer {
+    background-color: var(--background-color-header);
+    block-size: auto;
+    font-family: var(--title-font-family);
+    color: var(--color-text-footer);
+    font-size: 16px;
 }

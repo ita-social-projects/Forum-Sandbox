@@ -1,19 +1,27 @@
-{% extends 'base_admin.html' %}
+<!DOCTYPE html>
+
 {% load static %}
+<html>
 
+<head>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+</head>
 
-{% block css %}
-<link rel="stylesheet" href="{% static 'css/global.css' %}">
-<link rel="stylesheet" href="{% static 'css/admin.css' %}">
-{% endblock %}
+<body>
+    <main class="login-admin-form">
+        <h3 class="login-h3">Forum sandbox</h3>
+        <div class="box_form">
+            <form class="login-admin-fields" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="login-admin-submit">Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer class="login-admin-footer">
+        <p>Panel Admin Forum-sandbox</p>
+    </footer>
+</body>
 
-{% block content %}
-<h3>Forum sandbox</h3>
-<div class="box_form">
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit">
-</form>
-</div>
-{% endblock %}
+</html>

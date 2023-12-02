@@ -8,29 +8,36 @@
 {% endblock %}
 
 {% block nav %}
-<div>
-<a href="{% url 'logout' %}">Вийти</a>
-<p>Пошук</p>
+<div class="nav_block">
+    <a class="nav_a" href="{% url 'logout' %}">Вийти</a>
+    <a class="nav_a" href="{% url 'approve_company' %}">Approve Company</a>
+    <a class="nav_a" href="{% url 'info' %}">User-Company</a>
+    <form class="nav_a" style="display: inline-block;" method="get" action="{% url 'search' %}">
+        <input type="text" name="query" placeholder="Пошук">
+        <button type="submit">Пошук</button>
+    </form>
 </div>
 {% endblock %}
+
 
 {% block content %}
 <h2>Forum sandbox Admin </h3>
 
-<h3>User Information:</h2>
+    <h3>User Information:
+</h2>
 <div class="table-container">
-<table>
-    <thead>
-        <tr>
-            <th>Email</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Is Active</th>
-            <th>Is Staff</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in users %}
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Is Active</th>
+                <th>Is Staff</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
             <tr>
                 <td>{{ user.email }}</td>
                 <td>{{ user.name }}</td>
@@ -39,37 +46,37 @@
                 <td>{{ user.is_staff }}</td>
                 <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 <!-- Display Company Information -->
 <h3>Company Information:</h2>
-<div class="table-container">
-<table >
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Registered</th>
-            <th>Startup</th>
-            <th>Common_info</th>
-            <th>Edrpou</th>
-            <th>Deleted</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for company in companys %}
-            <tr>
-                <td>{{ company.name }}</td>
-                <td>{{ company.is_registered }}</td>
-                <td>{{ company.is_startup }}</td>
-                <td>{{ company.common_info }}</td>
-                <td>{{ company.edrpou}}</td>
-                <td>{{ company.is_deleted }}</td>
-                <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-</div>
-{% endblock %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Registered</th>
+                    <th>Startup</th>
+                    <th>Common_info</th>
+                    <th>Edrpou</th>
+                    <th>Deleted</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in companys %}
+                <tr>
+                    <td>{{ company.name }}</td>
+                    <td>{{ company.is_registered }}</td>
+                    <td>{{ company.is_startup }}</td>
+                    <td>{{ company.common_info }}</td>
+                    <td>{{ company.edrpou}}</td>
+                    <td>{{ company.is_deleted }}</td>
+                    <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endblock %}

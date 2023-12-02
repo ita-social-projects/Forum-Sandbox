@@ -1,5 +1,53 @@
-/* Start */
+/* Reset some default styles */
+.login-admin-form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--background-color-form);
+    border-radius: 5px;
+}
+
+.login-h3 {
+    color: var(--color-text-footer);
+    text-align: center;
+}
 
 .box_form {
-    color: var(--background-color-header);
-} 
+    margin-top: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+.login-admin-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-admin-fields label {
+    margin-bottom: 8px;
+}
+
+.login-admin-fields {
+    margin: 16px;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.login-admin-submit {
+    padding: 10px;
+    background-color: var(--background-color-form);
+    color: var(--color-text-form);
+    border: 1px solid #ddd;;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.login-admin-submit:hover {
+    background-color: #0056b3;
+}
+
+.login-admin-footer {
+    margin-top: 20%;
+    text-align: center;
+    color: var(--color-text-footer);
+}
