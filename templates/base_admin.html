@@ -12,6 +12,15 @@
         {% block header %}{% endblock %}
     </header>
     <nav>
+        <div class="nav_block">
+            <a class="nav_a" href="{% url 'logout' %}">Вийти</a>
+            <a class="nav_a" href="{% url 'approve_company' %}">Approve Company</a>
+            <a class="nav_a" href="{% url 'info' %}">User-Company</a>
+            <form class="nav_a" style="display: inline-block;" method="get" action="{% url 'search' %}">
+                <input type="text" name="query" placeholder="Пошук">
+                <button type="submit">Пошук</button>
+            </form>
+        </div>
         {%block nav %}{% endblock %}
     </nav>
 

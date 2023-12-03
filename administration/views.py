@@ -46,25 +46,27 @@ def info(request):
 def approve_company(request):
     saved_companies = SavedCompany.objects.all()
 
-    user_info_list = []
+    approved_info_list = []
     not_approved_info_list = []
 
-    for company in saved_companies:
+    for user_company in saved_companies:
         user_info = {
-            'email': company.user.email,
-            'name': company.user.name,
-            'edrpou': company.company.edrpou,
-            'profile_name': company.company.name,
-            'is_active ': company.company.is_registered,
+            'email': user_company.user.email,
+            'name_company_owner': user_company.user.name,
+            'edrpou': user_company.company.edrpou,
+            'company_name': user_company.company.name,
+            'is_active ': user_company.company.is_registered,
+            'is_deleted': user_company.company.is_deleted,
+            'id': user_company.company.id
         }
 
-        if not company.company.is_registered:
+        if not user_company.company.is_registered:
             not_approved_info_list.append(user_info)
-        elif company.company.is_registered:
-            user_info_list.append(user_info)    
+        elif user_company.company.is_registered:
+            approved_info_list.append(user_info)    
 
     content = {
-        'user_info_list': user_info_list,
+        'approved_info_list': approved_info_list,
         'not_approved_info_list': not_approved_info_list,
     }
     return render(request, 'admin_approve_company.html', content)
@@ -74,3 +76,20 @@ def search(request):
     content = {
     }
     return render(request,'admin_settings.html', content)
+
+@login_required
+def erdpou_aproved(request, id):
+    my_object = SavedCompany.objects.get(company_id = id)
+    my_object.company.is_registered = True 
+    my_object.company.save() 
+    return  redirect('approve_company')
+
+
+@login_required
+def company_unregistered(request, id):
+    my_object = SavedCompany.objects.get(company_id = id)
+    my_object.company.is_registered = False 
+    my_object.company.save() 
+    return  redirect('approve_company')
+
+

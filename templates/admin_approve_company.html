@@ -8,15 +8,6 @@
 {% endblock %}
 
 {% block nav %}
-<div class="nav_block">
-    <a class="nav_a" href="{% url 'logout' %}">Вийти</a>
-    <a class="nav_a" href="{% url 'approve_company' %}">Approve Company</a>
-    <a class="nav_a" href="{% url 'info' %}">User-Company</a>
-    <form class="nav_a" style="display: inline-block;" method="get" action="{% url 'search' %}">
-        <input type="text" name="query" placeholder="Пошук">
-        <button type="submit">Пошук</button>
-    </form>
-</div>
 {% endblock %}
 
 
@@ -27,9 +18,9 @@
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Company</th>
-                    <th>Registered</th>
-                    <th>Email</th>
+                    <th>Email Owner</th>
                     <th>Owner</th>
                     <th>Edrpou</th>
                     <th>Deleted</th>
@@ -38,13 +29,13 @@
             <tbody>
                 {% for company in not_approved_info_list %}
                 <tr>
-                    <td>{{ company.name }}</td>
-                    <td>{{ company.is_active }}</td>
-                    <td>{{ company.email }}</td>
+                    <td>{{ company.id }}</td>
                     <td>{{ company.company_name }}</td>
-                    <td><a href="">{{ company.edrpou}}</a></td>
+                    <td>{{ company.email }}</td>
+                    <td>{{ company.name_company_owner }}</td>
+                    <td><a href="#">{{ company.edrpou}}</a></td>
                     <td>{{ company.is_deleted }}</td>
-                    <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
+                    <td><a href="{% url 'erdpou_aproved' company.id %}">approve</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -56,24 +47,25 @@
         <table>
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Company</th>
-                    <th>Registered</th>
-                    <th>Email</th>
+                    <th>Email Owner</th>
                     <th>Owner</th>
                     <th>Edrpou</th>
                     <th>Deleted</th>
                 </tr>
             </thead>
             <tbody>
-                {% for company in user_info_list %}
+                {% for company in approved_info_list %}
                 <tr>
-                    <td>{{ company.name }}</td>
-                    <td>{{ company.is_active }}</td>
-                    <td>{{ company.email }}</td>
+                    <td>{{ company.id }}</td>
                     <td>{{ company.company_name }}</td>
-                    <td>{{ company.edrpou}}</td>
+                    <td>{{ company.email }}</td>
+                    <td>{{ company.name_company_owner }}</td>
+                    <td><a href="#">{{ company.edrpou}}</a></td>
                     <td>{{ company.is_deleted }}</td>
-                    <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
+                    <td><a href="{% url 'company_unregistered' company.id %}">unregistered</a></td>
+                    
                 </tr>
                 {% endfor %}
             </tbody>
