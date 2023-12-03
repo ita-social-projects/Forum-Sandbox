@@ -45,25 +45,31 @@ def info(request):
 @login_required
 def approve_company(request):
     saved_companies = SavedCompany.objects.all()
-
     approved_info_list = []
     not_approved_info_list = []
-
     for user_company in saved_companies:
-        user_info = {
+        digits_in_edrpou = len(str(user_company.company.edrpou))
+        if digits_in_edrpou  == 8:
+            flag_approve = 'EDRPOU'
+        elif digits_in_edrpou  == 10:
+            flag_approve = 'IPN'
+        else:
+            flag_approve = f'Incorrect - {digits_in_edrpou} digits'      
+        full_company_info = {
             'email': user_company.user.email,
             'name_company_owner': user_company.user.name,
             'edrpou': user_company.company.edrpou,
-            'company_name': user_company.company.name,
+            'company_name': user_company.company.official_name,
             'is_active ': user_company.company.is_registered,
             'is_deleted': user_company.company.is_deleted,
-            'id': user_company.company.id
+            'id': user_company.company.id,
+            'flag_approve': flag_approve,
         }
 
         if not user_company.company.is_registered:
-            not_approved_info_list.append(user_info)
+            not_approved_info_list.append(full_company_info)
         elif user_company.company.is_registered:
-            approved_info_list.append(user_info)    
+            approved_info_list.append(full_company_info)    
 
     content = {
         'approved_info_list': approved_info_list,
@@ -79,12 +85,16 @@ def search(request):
 
 @login_required
 def erdpou_aproved(request, id):
-    my_object = SavedCompany.objects.get(company_id = id)
-    my_object.company.is_registered = True 
-    my_object.company.save() 
-    return  redirect('approve_company')
+    my_object = SavedCompany.objects.get(company_id=id)
+    edrpou_length = len(str(my_object.company.edrpou))
 
+    if edrpou_length == 8 or edrpou_length == 10:
+        my_object.company.is_registered = True
+        my_object.company.save()
+    
+    return redirect('approve_company')
 
+        
 @login_required
 def company_unregistered(request, id):
     my_object = SavedCompany.objects.get(company_id = id)

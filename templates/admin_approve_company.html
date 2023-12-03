@@ -24,6 +24,7 @@
                     <th>Owner</th>
                     <th>Edrpou</th>
                     <th>Deleted</th>
+                    <th>Flag</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,7 @@
                     <td>{{ company.name_company_owner }}</td>
                     <td><a href="#">{{ company.edrpou}}</a></td>
                     <td>{{ company.is_deleted }}</td>
+                    <td>{{ company.flag_approve }}</td>
                     <td><a href="{% url 'erdpou_aproved' company.id %}">approve</a></td>
                 </tr>
                 {% endfor %}
