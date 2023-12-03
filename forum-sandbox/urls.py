@@ -17,12 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path("", include("authentication.urls")),
     path('', include('administration.urls')),
-    # path("api/", include("authentication.urls", namespace="authentication")),
-    # path("api/", include("profiles.urls", namespace="profiles")),
-    # path(
-    #     "api/admin/",
-    #     include("administration.urls", namespace="administration"),
-    # ),
-    # path("api/", include("search.urls", namespace="search")),
 ]
