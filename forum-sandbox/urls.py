@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from .views import MainPageView
 
 urlpatterns = [
+    path('api/main_page/', MainPageView.as_view(), name='main_page'),
     # path("admin/", admin.site.urls),
     path("", include("authentication.urls")),
     # path("api/", include("profiles.urls", namespace="profiles")),
