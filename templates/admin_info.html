@@ -12,10 +12,9 @@
 
 
 {% block content %}
-<h2>Forum sandbox Admin </h3>
+<h2>Forum sandbox Admin </h2>
 
-    <h3>User Information:
-</h2>
+<h3 class="tytle-table">User Information:</h3>
 <div class="table-container">
     <table>
         <thead>
@@ -39,35 +38,69 @@
             </tr>
             {% endfor %}
         </tbody>
+        <div class="pagination">
+            <span class="step-links">
+                {% if users.has_previous %}
+                <a href="?page_user=1">&laquo; first</a>
+                <a href="?page_user={{ users.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ users.number }} in {{ users.paginator.num_pages }}.
+                </span>
+
+                {% if users.has_next %}
+                <a href="?page_user={{ users.next_page_number }}">next</a>
+                <a href="?page_user={{ users.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
     </table>
 </div>
 <!-- Display Company Information -->
-<h3>Company Information:</h2>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Registered</th>
-                    <th>Startup</th>
-                    <th>Common_info</th>
-                    <th>Edrpou</th>
-                    <th>Deleted</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for company in companys %}
-                <tr>
-                    <td>{{ company.name }}</td>
-                    <td>{{ company.is_registered }}</td>
-                    <td>{{ company.is_startup }}</td>
-                    <td>{{ company.common_info }}</td>
-                    <td>{{ company.edrpou}}</td>
-                    <td>{{ company.is_deleted }}</td>
-                    <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-    {% endblock %}
+<h3 class="tytle-table">Company Information:</h3>
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Registered</th>
+                <th>Startup</th>
+                <th>Common_info</th>
+                <th>Edrpou</th>
+                <th>Deleted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company in companys %}
+            <tr>
+                <td>{{ company.name }}</td>
+                <td>{{ company.is_registered }}</td>
+                <td>{{ company.is_startup }}</td>
+                <td>{{ company.common_info }}</td>
+                <td>{{ company.edrpou}}</td>
+                <td>{{ company.is_deleted }}</td>
+                <td><a href="{% url 'logout' %}">CRUD IMPLEMENT</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <div class="pagination">
+            <span class="step-links">
+                {% if companys.has_previous %}
+                <a href="?page_company=1">&laquo; first</a>
+                <a href="?page_company={{ companys.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ companys.number }} in {{ companys.paginator.num_pages }}.
+                </span>
+
+                {% if companys.has_next %}
+                <a href="?page_company={{ companys.next_page_number }}">next</a>
+                <a href="?page_company={{ companys.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </table>
+</div>
+{% endblock %}

@@ -1,53 +1,51 @@
 /* Reset some default styles */
 .login-admin-form {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 10% auto;
     padding: 20px;
     background-color: var(--background-color-form);
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-.login-h3 {
+.login-form-h3 {
     color: var(--color-text-footer);
+    font-family: var(--description-font-family);
     text-align: center;
 }
 
-.box_form {
-    margin-top: 20px;
-    text-align: center;
+.box-form {
     margin: 10px;
-}
-
-.login-admin-fields {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
-.login-admin-fields label {
-    margin-bottom: 8px;
-}
-
-.login-admin-fields {
-    margin: 16px;
-    padding: 8px;
-    border-radius: 3px;
+.email-form,
+.password-form {
+    max-height: 20%;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
 }
 
 .login-admin-submit {
     padding: 10px;
     background-color: var(--background-color-form);
+    font-family: var(--description-font-family);
     color: var(--color-text-form);
-    border: 1px solid #ddd;;
-    border-radius: 3px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .login-admin-submit:hover {
-    background-color: #0056b3;
+    background-color: #ddd;
+    color: black;
 }
 
 .login-admin-footer {
     margin-top: 20%;
-    text-align: center;
     color: var(--color-text-footer);
+    font-family: var(--description-font-family);
+    text-align: center;
 }

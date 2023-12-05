@@ -1,7 +1,8 @@
 /* Start admin info */
 .table-container {
-    max-height: 400px;  
-    overflow-y: auto;
+    max-height: 50%;  
+    padding: 10px;
+    /* overflow-y: auto; */
 }
 
 th, td {
@@ -19,6 +20,6 @@ table {
     border-collapse: collapse;
 }
 
-h3 {
+.tytle-table {
     margin: 10px;
 }

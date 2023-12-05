@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 {% load static %}
+
 <html>
 
 <head>
@@ -10,9 +10,9 @@
 
 <body>
     <main class="login-admin-form">
-        <h3 class="login-h3">Forum sandbox</h3>
-        <div class="box_form">
-            <form class="login-admin-fields" method="post">
+        <h3 class="login-form-h3">Forum sandbox</h3>
+        <div class="box-form">
+            <form method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="login-admin-submit">Submit</button>

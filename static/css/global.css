@@ -48,10 +48,6 @@ input {
     font-family: var(--description-font-family);
 }
 
-p {
-    max-width: 644px;
-}
-
 nav {
     background-color: var(--background-color-header);
     font-family: var(--title-font-family);
@@ -67,7 +63,7 @@ nav {
 
 footer {
     background-color: var(--background-color-header);
-    block-size: auto;
+
     font-family: var(--title-font-family);
     color: var(--color-text-footer);
     font-size: 16px;

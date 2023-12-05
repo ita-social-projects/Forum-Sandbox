@@ -5,6 +5,8 @@ from .forms import LoginForm
 from django.contrib.auth.decorators import login_required
 from authentication.models import *
 from profiles.models import *
+from django.core.paginator import Paginator
+
 
 
 
@@ -34,16 +36,29 @@ def logon_admin(request):
 
 @login_required
 def info(request):
+    items_per_page = 10
     users = CustomUser.objects.all()
+    paginator_users = Paginator(users, items_per_page)
+
     companys = Profile.objects.all()
+    paginator_companys = Paginator(companys, items_per_page)
+
+    user_page = request.GET.get('page_user', 1)
+    company_page = request.GET.get('page_company', 1)
+
+    current_user_page = paginator_users.get_page(user_page)
+    current_company_page = paginator_companys.get_page(company_page)
+
     content = {
-        'users' : users,
-        'companys' : companys,
+        'users': current_user_page,
+        'companys': current_company_page,
     }
-    return render(request,'admin_info.html', content)
+    return render(request, 'admin_info.html', content)
+
 
 @login_required
 def approve_company(request):
+    items_per_page = 5
     saved_companies = SavedCompany.objects.all()
     approved_info_list = []
     not_approved_info_list = []
@@ -69,11 +84,20 @@ def approve_company(request):
         if not user_company.company.is_registered:
             not_approved_info_list.append(full_company_info)
         elif user_company.company.is_registered:
-            approved_info_list.append(full_company_info)    
+            approved_info_list.append(full_company_info) 
+
+    paginator_not_approved = Paginator(not_approved_info_list, items_per_page)
+    company_page_not_approved = request.GET.get('page_not_approve', 1)
+    
+    paginator_not_approved_page = paginator_not_approved.get_page(company_page_not_approved) 
+
+    paginator_approved = Paginator(approved_info_list, items_per_page)
+    company_page_approved = request.GET.get('page_company', 1)
+    paginator_approved_page = paginator_approved.get_page(company_page_approved)         
 
     content = {
-        'approved_info_list': approved_info_list,
-        'not_approved_info_list': not_approved_info_list,
+        'approved_info_list': paginator_approved_page,
+        'not_approved_info_list': paginator_not_approved_page,
     }
     return render(request, 'admin_approve_company.html', content)
 
