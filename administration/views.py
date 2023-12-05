@@ -93,7 +93,7 @@ def approve_company(request):
 
     paginator_approved = Paginator(approved_info_list, items_per_page)
     company_page_approved = request.GET.get('page_company', 1)
-    paginator_approved_page = paginator_approved.get_page(company_page_approved)         
+    paginator_approved_page = paginator_approved.get_page(company_page_approved )         
 
     content = {
         'approved_info_list': paginator_approved_page,
