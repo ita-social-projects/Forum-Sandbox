@@ -37,10 +37,10 @@ def logon_admin(request):
 @login_required
 def info(request):
     items_per_page = 10
-    users = CustomUser.objects.all()
+    users = CustomUser.objects.all().order_by('name')
     paginator_users = Paginator(users, items_per_page)
 
-    companys = Profile.objects.all()
+    companys = Profile.objects.all().order_by('name')
     paginator_companys = Paginator(companys, items_per_page)
 
     user_page = request.GET.get('page_user', 1)
