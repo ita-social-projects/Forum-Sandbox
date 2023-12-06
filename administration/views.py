@@ -8,8 +8,6 @@ from profiles.models import *
 from django.core.paginator import Paginator
 
 
-
-
 def logon_admin(request):
     messages = ''
     if request.method == 'POST':
@@ -58,7 +56,7 @@ def info(request):
 
 @login_required
 def approve_company(request):
-    items_per_page = 5
+    items_per_page = 10
     saved_companies = SavedCompany.objects.all()
     approved_info_list = []
     not_approved_info_list = []
@@ -107,6 +105,7 @@ def search(request):
     }
     return render(request,'admin_settings.html', content)
 
+
 @login_required
 def erdpou_aproved(request, id):
     erdpou_aproved_object = SavedCompany.objects.get(company_id=id)
@@ -129,12 +128,13 @@ def company_unregistered(request, id):
 @login_required
 def admin_full_company_info(request, id):
     user_company = SavedCompany.objects.get(company_id=id)
-    url_img = []
     media_list = ProfilesImage.objects.filter(profile_id_id=id).values('name', 'path')
+
+    region_ids = ProfilesProfileRegion.objects.filter(id=id).values_list('region', flat=True).distinct()
+    all_region = list(ProfilesRegion.objects.filter(id__in=region_ids).values_list('name_ua', flat=True).distinct())
     
-    for li in media_list:
-        url_img.append('/media/' + li['path'] + '/' + li['name'])
-     
+    url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
+
     full_company_info = {
         'email': user_company.user.email,
         'name_company_owner': user_company.user.name,
@@ -148,10 +148,9 @@ def admin_full_company_info(request, id):
 
     content = {
         'media_list': url_img,
+        'region_list' :all_region,
         'full_company_info': full_company_info,
     }
 
     return render(request, 'admin_full_company_info.html', content)
-
-
 
