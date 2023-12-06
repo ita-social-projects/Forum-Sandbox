@@ -122,6 +122,7 @@ def company_unregistered(request, id):
     company_unregistered_object = SavedCompany.objects.get(company_id = id)
     company_unregistered_object.company.is_registered = False 
     company_unregistered_object.company.save() 
+    
     return  redirect('approve_company')
 
 @login_required
@@ -129,7 +130,15 @@ def admin_full_company_info(request, id):
     user_company = SavedCompany.objects.get(company_id=id)
 
     media_list = ProfilesImage.objects.filter(profile_id_id=id).values('name', 'path')
-    url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
+    logo_img = []
+    image_img = []
+    for it in media_list:
+        if it['path'] == 'logo':
+            logo_img.append('/media/' + it['path'] + '/' + it['name'])
+        else:    
+            image_img.append('/media/' + it['path'] + '/' + it['name'])
+
+    #url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
 
     region_ids = ProfilesProfileRegion.objects.filter(id=id).values_list('region', flat=True).distinct()
     all_region = list(ProfilesRegion.objects.filter(id__in=region_ids).values_list('name_ua', flat=True).distinct())
@@ -146,8 +155,9 @@ def admin_full_company_info(request, id):
     }
 
     content = {
-        'media_list': url_img,
-        'region_list' :all_region,
+        'media_list': image_img,
+        'media_logo': logo_img,
+        'region_list': all_region,
         'full_company_info': full_company_info,
     }
 

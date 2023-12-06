@@ -14,8 +14,8 @@
 {% block content %}
     <h3 class="modal_h3">Company & User Info</h3>
 
-    {% for image_url in media_list %}
-        <img class="img_size" src="{{ image_url }}" alt="#">
+    {% for logo_url in media_logo %}
+        <img class="logo_size" src="{{ logo_url }}" alt="#">
     {% endfor %}
 
     <ul class="modal_company">
@@ -40,4 +40,7 @@
         {% endfor %}
     </ul>
    
+    {% for image_url in media_list %}
+        <img class="img_size" src="{{ image_url }}" alt="#">
+    {% endfor %}
 {% endblock %}
