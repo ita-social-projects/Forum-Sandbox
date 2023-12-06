@@ -109,21 +109,49 @@ def search(request):
 
 @login_required
 def erdpou_aproved(request, id):
-    my_object = SavedCompany.objects.get(company_id=id)
-    edrpou_length = len(str(my_object.company.edrpou))
+    erdpou_aproved_object = SavedCompany.objects.get(company_id=id)
+    edrpou_length = len(str(erdpou_aproved_object.company.edrpou))
 
     if edrpou_length == 8 or edrpou_length == 10:
-        my_object.company.is_registered = True
-        my_object.company.save()
+        erdpou_aproved_object.company.is_registered = True
+        erdpou_aproved_object.company.save()
     
     return redirect('approve_company')
 
         
 @login_required
 def company_unregistered(request, id):
-    my_object = SavedCompany.objects.get(company_id = id)
-    my_object.company.is_registered = False 
-    my_object.company.save() 
+    company_unregistered_object = SavedCompany.objects.get(company_id = id)
+    company_unregistered_object.company.is_registered = False 
+    company_unregistered_object.company.save() 
     return  redirect('approve_company')
+
+@login_required
+def admin_full_company_info(request, id ):
+    my_object = SavedCompany.objects.get(company_id = id)
+   
+    media_list = ProfilesImage.objects.filter(profile_id_id=id)
+
+   # category = ProfilesCategory.objects.get(company_id = id)
+    user_company = my_object
+    
+
+    full_company_info = {
+            'email': user_company.user.email,
+            'name_company_owner': user_company.user.name,
+            'edrpou': user_company.company.edrpou,
+            'company_name': user_company.company.official_name,
+            'is_active ': user_company.company.is_registered,
+            'is_deleted': user_company.company.is_deleted,
+            'id': user_company.company.id,
+            'phone':  user_company.company.phone,
+            'media_list': media_list,
+            
+        }
+    
+    content = {
+        'full_company_info':full_company_info
+        }
+    return render(request,'admin_full_company_info.html',content)
 
 

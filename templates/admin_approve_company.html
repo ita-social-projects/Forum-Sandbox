@@ -34,7 +34,7 @@
                     <td>{{ company.company_name }}</td>
                     <td>{{ company.email }}</td>
                     <td>{{ company.name_company_owner }}</td>
-                    <td><a href="#">{{ company.edrpou}}</a></td>
+                    <td><a href="{% url 'admin_full_company_info' company.id %}">{{ company.edrpou }}</a></td>
                     <td>{{ company.is_deleted }}</td>
                     <td>{{ company.flag_approve }}</td>
                     <td><a href="{% url 'erdpou_aproved' company.id %}">approve</a></td>
@@ -79,7 +79,7 @@
                         <td>{{ company.company_name }}</td>
                         <td>{{ company.email }}</td>
                         <td>{{ company.name_company_owner }}</td>
-                        <td><a href="#">{{ company.edrpou}}</a></td>
+                        <td><a href="{% url 'admin_full_company_info' company.id %}">{{ company.edrpou }}</a></td>
                         <td>{{ company.is_deleted }}</td>
                         <td><a href="{% url 'company_unregistered' company.id %}">unregistered</a></td>
 
