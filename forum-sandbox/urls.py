@@ -19,12 +19,7 @@ from .views import MainPageView
 
 urlpatterns = [
     path('api/main_page/', MainPageView.as_view(), name='main_page'),
-    # path("admin/", admin.site.urls),
     path("", include("authentication.urls")),
-    # path("api/", include("profiles.urls", namespace="profiles")),
-    # path(
-    #     "api/admin/",
-    #     include("administration.urls", namespace="administration"),
-    # ),
-    # path("api/", include("search.urls", namespace="search")),
+    path('', include('administration.urls')),
 ]
+
