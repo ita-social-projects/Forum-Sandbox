@@ -53,7 +53,6 @@ def info(request):
     }
     return render(request, 'admin_info.html', content)
 
-
 @login_required
 def approve_company(request):
     items_per_page = 10
@@ -91,7 +90,7 @@ def approve_company(request):
 
     paginator_approved = Paginator(approved_info_list, items_per_page)
     company_page_approved = request.GET.get('page_company', 1)
-    paginator_approved_page = paginator_approved.get_page(company_page_approved )         
+    paginator_approved_page = paginator_approved.get_page(company_page_approved)         
 
     content = {
         'approved_info_list': paginator_approved_page,
@@ -103,7 +102,7 @@ def approve_company(request):
 def search(request):
     content = {
     }
-    return render(request,'admin_settings.html', content)
+    return render(request, 'admin_settings.html', content)
 
 
 @login_required
@@ -128,12 +127,12 @@ def company_unregistered(request, id):
 @login_required
 def admin_full_company_info(request, id):
     user_company = SavedCompany.objects.get(company_id=id)
+
     media_list = ProfilesImage.objects.filter(profile_id_id=id).values('name', 'path')
+    url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
 
     region_ids = ProfilesProfileRegion.objects.filter(id=id).values_list('region', flat=True).distinct()
     all_region = list(ProfilesRegion.objects.filter(id__in=region_ids).values_list('name_ua', flat=True).distinct())
-    
-    url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
 
     full_company_info = {
         'email': user_company.user.email,
