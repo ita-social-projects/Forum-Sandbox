@@ -127,31 +127,31 @@ def company_unregistered(request, id):
     return  redirect('approve_company')
 
 @login_required
-def admin_full_company_info(request, id ):
-    my_object = SavedCompany.objects.get(company_id = id)
-   
-    media_list = ProfilesImage.objects.filter(profile_id_id=id)
-
-   # category = ProfilesCategory.objects.get(company_id = id)
-    user_company = my_object
+def admin_full_company_info(request, id):
+    user_company = SavedCompany.objects.get(company_id=id)
+    url_img = []
+    media_list = ProfilesImage.objects.filter(profile_id_id=id).values('name', 'path')
     
-
+    for li in media_list:
+        url_img.append('/media/' + li['path'] + '/' + li['name'])
+     
     full_company_info = {
-            'email': user_company.user.email,
-            'name_company_owner': user_company.user.name,
-            'edrpou': user_company.company.edrpou,
-            'company_name': user_company.company.official_name,
-            'is_active ': user_company.company.is_registered,
-            'is_deleted': user_company.company.is_deleted,
-            'id': user_company.company.id,
-            'phone':  user_company.company.phone,
-            'media_list': media_list,
-            
-        }
-    
+        'email': user_company.user.email,
+        'name_company_owner': user_company.user.name,
+        'edrpou': user_company.company.edrpou,
+        'company_name': user_company.company.official_name,
+        'is_active ': user_company.company.is_registered,
+        'is_deleted': user_company.company.is_deleted,
+        'id': user_company.company.id,
+        'phone': user_company.company.phone,
+    }
+
     content = {
-        'full_company_info':full_company_info
-        }
-    return render(request,'admin_full_company_info.html',content)
+        'media_list': url_img,
+        'full_company_info': full_company_info,
+    }
+
+    return render(request, 'admin_full_company_info.html', content)
+
 
 

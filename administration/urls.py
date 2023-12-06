@@ -2,6 +2,9 @@ from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -14,5 +17,7 @@ urlpatterns = [
     path('administrator/approve_company/unregistered/<int:id>/', login_required(views.company_unregistered), name = 'company_unregistered'),
     path('administrator/search/', login_required(views.search), name = 'search'),
     path('administrator/company/<int:id>/', login_required(views.admin_full_company_info), name = 'admin_full_company_info'),
-
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
