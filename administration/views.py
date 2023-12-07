@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from authentication.models import *
 from profiles.models import *
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 
 def logon_admin(request):
@@ -34,11 +35,16 @@ def logon_admin(request):
 
 @login_required
 def info(request):
+    search_text = request.GET.get('search_text', '')
     items_per_page = 10
-    users = CustomUser.objects.all().order_by('name')
+    users = CustomUser.objects.filter(
+        Q(name__icontains=search_text) | Q(email__icontains=search_text)
+        ).order_by('name')
     paginator_users = Paginator(users, items_per_page)
-
-    companys = Profile.objects.all().order_by('name')
+    
+    companys = Profile.objects.filter(
+        Q(name__icontains=search_text) | Q(common_info__icontains=search_text)
+        ).order_by('name')
     paginator_companys = Paginator(companys, items_per_page)
 
     user_page = request.GET.get('page_user', 1)
@@ -55,8 +61,11 @@ def info(request):
 
 @login_required
 def approve_company(request):
+    search_text = request.GET.get('search_text', '')
     items_per_page = 10
-    saved_companies = SavedCompany.objects.all()
+    saved_companies = SavedCompany.objects.filter(
+        Q(company__official_name__icontains=search_text) |  Q(user__name__icontains=search_text)
+    ).order_by('company__name')
     approved_info_list = []
     not_approved_info_list = []
     for user_company in saved_companies:
@@ -67,6 +76,7 @@ def approve_company(request):
             flag_approve = 'IPN'
         else:
             flag_approve = f'Incorrect - {digits_in_edrpou} digits'      
+            
         full_company_info = {
             'email': user_company.user.email,
             'name_company_owner': user_company.user.name,
@@ -97,12 +107,6 @@ def approve_company(request):
         'not_approved_info_list': paginator_not_approved_page,
     }
     return render(request, 'admin_approve_company.html', content)
-
-@login_required
-def search(request):
-    content = {
-    }
-    return render(request, 'admin_settings.html', content)
 
 
 @login_required
@@ -138,9 +142,7 @@ def admin_full_company_info(request, id):
         else:    
             image_img.append('/media/' + it['path'] + '/' + it['name'])
 
-    #url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
-
-    region_ids = ProfilesProfileRegion.objects.filter(id=id).values_list('region', flat=True).distinct()
+    region_ids = ProfilesProfileRegion.objects.filter(profile_id=id).values_list('region', flat=True).distinct()
     all_region = list(ProfilesRegion.objects.filter(id__in=region_ids).values_list('name_ua', flat=True).distinct())
 
     full_company_info = {
@@ -162,4 +164,3 @@ def admin_full_company_info(request, id):
     }
 
     return render(request, 'admin_full_company_info.html', content)
-
