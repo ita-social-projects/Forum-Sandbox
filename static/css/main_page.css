@@ -1,0 +1,8 @@
+section.main_page_card {
+	margin: 100px;
+	width:auto;
+}
+section.main_page_partner_card{
+       margin: 100px;
+       min-height: 100px;
+}
