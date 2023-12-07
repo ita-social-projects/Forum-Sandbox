@@ -8,6 +8,10 @@
 {% endblock %}
 
 {% block nav %}
+<form class="nav_a"  method="get" action="{% url 'approve_company' %}">
+    <input type="text" name="search_text" placeholder="Пошук">
+    <button type="submit">Пошук</button>
+</form>
 {% endblock %}
 
 

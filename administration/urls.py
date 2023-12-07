@@ -14,7 +14,6 @@ urlpatterns = [
     path('administrator/approve_company/', login_required(views.approve_company), name='approve_company'),
     path('administrator/approve_company/erdpou/<int:id>/', login_required(views.erdpou_aproved), name='erdpou_aproved'),
     path('administrator/approve_company/unregistered/<int:id>/', login_required(views.company_unregistered), name='company_unregistered'),
-    path('administrator/search/', login_required(views.search), name='search'),
     path('administrator/company/<int:id>/', login_required(views.admin_full_company_info), name='admin_full_company_info'),
 ]
 
