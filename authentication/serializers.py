@@ -14,3 +14,14 @@ class CustomUserSerializer(serializers.ModelSerializer):
             new_user.set_password(password)
         new_user.save()
         return new_user
+
+    def update(self, user, validated_data):
+        for field in ['email', 'name', 'surname']:
+            if field in validated_data:
+                setattr(user, field, validated_data[field])
+
+        new_password = validated_data.get('password')
+        if new_password:
+            user.set_password(new_password)
+        user.save()
+        return user
