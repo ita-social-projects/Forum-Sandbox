@@ -138,9 +138,7 @@ def admin_full_company_info(request, id):
         else:    
             image_img.append('/media/' + it['path'] + '/' + it['name'])
 
-    #url_img = ['/media/' + li['path'] + '/' + li['name'] for li in media_list]
-
-    region_ids = ProfilesProfileRegion.objects.filter(id=id).values_list('region', flat=True).distinct()
+    region_ids = ProfilesProfileRegion.objects.filter(profile_id=id).values_list('region', flat=True).distinct()
     all_region = list(ProfilesRegion.objects.filter(id__in=region_ids).values_list('name_ua', flat=True).distinct())
 
     full_company_info = {
