@@ -8,9 +8,10 @@
 {% endblock %}
 
 {% block nav %}
-<form class="nav_a"  method="get" action="{% url 'approve_company' %}">
+<form class="nav_a" method="get" action="{% url 'approve_company' %}">
     <input type="text" name="search_text" placeholder="Пошук">
     <button type="submit">Пошук</button>
+    <button action="{% url 'approve_company' %}" type="submit">Скинути</button>
 </form>
 {% endblock %}
 
@@ -52,9 +53,11 @@
                 <a href="?page_not_approve=1">&laquo; first</a>
                 <a href="?page_not_approve={{ not_approved_info_list.previous_page_number }}">previous</a>
                 {% endif %}
+
                 <span class="current">
                     Page {{ not_approved_info_list.number }} in {{ not_approved_info_list.paginator.num_pages }}.
                 </span>
+
                 {% if not_approved_info_list.has_next %}
                 <a href="?page_not_approve={{ not_approved_info_list.next_page_number }}">next</a>
                 <a href="?page_not_approve={{ not_approved_info_list.paginator.num_pages }}">last &raquo;</a>
@@ -86,7 +89,6 @@
                         <td><a href="{% url 'admin_full_company_info' company.id %}">{{ company.edrpou }}</a></td>
                         <td>{{ company.is_deleted }}</td>
                         <td><a href="{% url 'company_unregistered' company.id %}">unregistered</a></td>
-
                     </tr>
                     {% endfor %}
                 </tbody>

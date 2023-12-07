@@ -8,9 +8,10 @@
 {% endblock %}
 
 {% block nav %}
-<form class="nav_a"  method="get" action="{% url 'info' %}">
+<form class="nav_a" method="get" action="{% url 'info' %}">
     <input type="text" name="search_text" placeholder="Пошук">
     <button type="submit">Пошук</button>
+    <button action="{% url 'approve_company' %}" type="submit">Скинути</button>
 </form>
 {% endblock %}
 
@@ -38,7 +39,6 @@
                 <td>{{ user.surname }}</td>
                 <td>{{ user.is_active }}</td>
                 <td>{{ user.is_staff }}</td>
-                <td><a href="#">CRUD IMPLEMENT</a></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -84,7 +84,6 @@
                 <td>{{ company.common_info }}</td>
                 <td>{{ company.edrpou}}</td>
                 <td>{{ company.is_deleted }}</td>
-                <td><a href="#">CRUD IMPLEMENT</a></td>
             </tr>
             {% endfor %}
         </tbody>
