@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from .views import MainPageView
 
 urlpatterns = [
+<<<<<<< HEAD
     # path("admin/", admin.site.urls),
     path('', include("authentication.urls")),
     # path("api/", include("profiles.urls", namespace="profiles")),
@@ -25,4 +27,10 @@ urlpatterns = [
     #     include("administration.urls", namespace="administration"),
     # ),
     # path("api/", include("search.urls", namespace="search")),
+=======
+    path('api/main_page/', MainPageView.as_view(), name='main_page'),
+    path("", include("authentication.urls")),
+    path('', include('administration.urls')),
+>>>>>>> 7ecbb8be5a67bb0937f9cca56ca6770d696d5d16
 ]
+
