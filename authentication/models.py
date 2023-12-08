@@ -22,6 +22,7 @@ class CustomUserManager(BaseUserManager):
         user.save()
         return user
 
+
 class CustomUser(AbstractBaseUser):#, PermissionsMixin):
     """
     Basic user class
