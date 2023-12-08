@@ -4,7 +4,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 from django.contrib.auth import views as djauth
 
 urlpatterns = [
-    path('api/register/', CreateUserView.as_view(), name='user-create'),
+    path('api/registration/', CreateUserView.as_view(), name='user-create'),
     path('api/user/', UserDetailView.as_view(), name='user-detail'),
     path('api/token/', obtain_auth_token, name='api_token_auth'),
     path('api/users/<int:id>', UsersDetailView.as_view(), name='users-detail'),
