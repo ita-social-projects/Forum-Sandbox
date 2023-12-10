@@ -17,7 +17,7 @@ def logon_admin(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
             user = authenticate(request, email=email, password=password)
-            if user is not None:
+            if user is not None and user.is_superuser:
                 login(request, user)
                 role_select = 'info'
                 return redirect(f'{role_select}')
