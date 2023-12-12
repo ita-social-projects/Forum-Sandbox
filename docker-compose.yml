@@ -3,9 +3,9 @@ version: '3.9'
 services:
   web:
     build: .
-    command: gunicorn forum.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn forum-sandbox.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - ./:/Forum
+      - ./:/forum-sandbox
     ports:
       - 8000:8000
     env_file:
@@ -21,13 +21,14 @@ services:
       POSTGRES_USER: ${PG_USER}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
       POSTGRES_DB: ${PG_DB}
-      PGDATABASE: ${PG_DB}
-      PGPASSWORD: ${PG_PASSWORD}
-      PGUSER: ${PG_USER}
+      # POSTGRES_INITDB_ARGS: "--username=${PG_USER}" 
+      #PGDATABASE: ${PG_DB}
+     # PGPASSWORD: ${PG_PASSWORD}
+      #PGUSER: ${PG_USER}
     ports:
-      - ${DB_PORT}:5432
+      - ${DB_PORT_OUT}:5432
   pgadmin4:
-    container_name: forum_pgadmin4
+    container_name: forum-sandbox_pgadmin4
     image: dpage/pgadmin4
     restart: always
     environment:
