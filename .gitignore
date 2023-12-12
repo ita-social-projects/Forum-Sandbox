@@ -11,3 +11,5 @@ env
 __pycache__/
 /FrontEnd/node_modules
 __local_settings.py
+/*/migrations/
+.coverage
