@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import MainPageView
+
 
 urlpatterns = [
-    path('api/main_page/', MainPageView.as_view(), name='main_page'),
+    path('', include('profiles.urls')),
     path("", include("authentication.urls")),
     path('', include('administration.urls')),
 ]
