@@ -153,13 +153,14 @@ CORS_ORIGIN_WHITELIST=
 ```
 - User, run the local server on port localhost:8000
 ``` shell
-$ python manage.py makemigrations
 $ psql -U postgres -d forum < dump_forum.sql
+$ python manage.py runserver
 or 
+$ python manage.py makemigrations
 $ python manage.py migrate
+$ python manage.py createsuperuser (custom_admin_panel_user)
 $ python manage.py runserver
 ```
-
 
 ### How to run Docker
 
@@ -193,8 +194,9 @@ $ docker compose up
 $ docker exec -i contener-name-exemple python manage.py makemigrations
 $ docker exec -i contener-name-exemple python manage.py migrate
 or 
+$ docker compose build
+$ docker compose up
 $ docker exec -i forum-sandbox-db-1 psql -U postgres -d forum < dump_forum.sql
-
 ```
 
 > Stop Docker comands
@@ -217,6 +219,7 @@ $ python manage.py test
 ---
 
 ## Documentation
+- 🔃 Documentation <a href="https://github.com/ita-social-projects/Forum-Sandbox/wiki" target="_blank">Forum-Sandbox/wiki</a>.
 
 ---
 
@@ -249,13 +252,9 @@ $ python manage.py test
 > Or Contributors/People
 
 [![@romanmyko](https://avatars.githubusercontent.com/u/123646984?v=4)](https://github.com/romanmyko)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam) 
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
-[![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)  
+[![@ohorodnykostap](https://github.com/ohorodnykostap)](https://github.com/ohorodnykostap)
+[![@do-androids-dream](https://avatars.githubusercontent.com/u/116935261?v=4)](https://github.com/do-androids-dream)
+ 
 
 - You can just grab their GitHub profile image URL
 - You should probably resize their picture using `?s=200` at the end of the image URL.
