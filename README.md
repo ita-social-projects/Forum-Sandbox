@@ -64,46 +64,65 @@
 - Images of what it should look like
 
 ### Required to install
-* Python (3.6.3)
-* PostgreSQL (9.5.9)
-* Django (1.11.6)
-* NodeJS (6.11.4)
-* Redis (3.0.6)
+* Python 3.9
+* PostgreSQL 14
+* Django 4.2.3
+* NodeJS Frontend
+
 
 ### Environment
 environmental variables
 ```properties
-spring.datasource.url=${DATASOURCE_URL}
-spring.datasource.username=${DATASOURCE_USER}
-spring.datasource.password=${DATASOURCE_PASSWORD}
-spring.mail.username=${EMAIL_ADDRESS}
-spring.mail.password=${EMAIL_PASSWORD}
-cloud.name=${CLOUD_NAME}
-api.key=${API_KEY}
-api.secret=${API_SECRET}
+#db details
+SECRET_KEY= 1111
+PG_DB= forum
+PG_USER= postgres
+PG_PASSWORD= postgres
+DB_HOST= localhost
+DB_PORT= 5432
+DB_PORT_OUT= 55432 # Check if there is a conflict with the setup on port 55432
+
+#pgadmin user
+PGADMIN_EMAIL: admin@admin.com
+PGADMIN_PASSWORD: 1
+
+#SMTP
+EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
+EMAIL_HOST= someuser@gmail.com
+EMAIL_PORT= 587
+EMAIL_USE_TLS= 1
+EMAIL_HOST_USER= test@test.com
+EMAIL_HOST_PASSWORD= test-password
+
+#origin hostnames allowed to make cross-site HTTP requests
+CORS_ORIGIN_WHITELIST=
 ```
 
 ### Clone
 
-- Clone this repo to your local machine using `https://github.com/ita-social-projects/SOMEREPO`
+- Clone this repo to your local machine using `https://github.com/ita-social-projects/Forum-Sandbox.git`
 
 ### Setup
 
 - If you want more syntax highlighting, format your code like this:
+- Localhost
 
 > update and install this package first
 
 ```shell
-$ brew update
-$ brew install SOMEREPOproductions
+$ pip install -r requirements.txt
+$ 
 ```
 
 > now install npm and bower packages
 
 ```shell
-$ npm install
-$ bower install
+$ sudo apt update
+$ sudo apt install nodejs
+$ sudo apt install npm
+
 ```
+-Docker run 
 
 - For all the possible languages that support syntax highlithing on GitHub (which is basically all of them), refer <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml" target="_blank">here</a>.
 
