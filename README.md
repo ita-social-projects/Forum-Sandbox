@@ -238,7 +238,7 @@ $ python manage.py test
 
 #### Step 3
 
-- 🔃 Create a new pull request using <a href="#" target="_blank">github.com/ita-social-projects/SOMEREPO</a>.
+- 🔃 Create a new pull request using <a href="#" target="_blank">https://github.com/ita-social-projects/Forum-Sandbox.git</a>.
 
 ### Issue flow
 
@@ -248,7 +248,7 @@ $ python manage.py test
 
 > Or Contributors/People
 
-[![@romanmyko](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/romanmyko)
+[![@romanmyko](https://avatars.githubusercontent.com/u/123646984?v=4)](https://github.com/romanmyko)
 [![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
 [![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam)
 [![@lhalam](https://avatars3.githubusercontent.com/u/3837059?s=100&v=4)](https://github.com/lhalam) 
