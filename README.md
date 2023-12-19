@@ -4,11 +4,11 @@
 
 # Repository Title Goes Here
 
-> Subtitle or Short Description Goes Here
+> This project aims to facilitate the collaboration between startups and investors, providing a platform for them to discover and connect with each other. It serves as a business-to-business solution, enabling the exchange of information between startups and potential investors.
 
-> ideally one sentence
+>  Business-to-business solution B2B
 
-> include terms/tags that can be searched
+> Django backend serves, Custom Administrative Panel
 
 **Badges will go here**
 
@@ -23,10 +23,10 @@
 - license
 - etc.
 
-[![Build Status](https://img.shields.io/travis/ita-social-projects/GreenCity/master?style=flat-square)](https://travis-ci.org/github/ita-social-projects/GreenCity)
-[![Coverage Status](https://img.shields.io/gitlab/coverage/ita-social-projects/GreenCity/master?style=flat-square)](https://coveralls.io)
-[![Github Issues](https://img.shields.io/github/issues/ita-social-projects/GreenCity?style=flat-square)](https://github.com/ita-social-projects/GreenCity/issues)
-[![Pending Pull-Requests](https://img.shields.io/github/issues-pr/ita-social-projects/GreenCity?style=flat-square)](https://github.com/ita-social-projects/GreenCity/pulls)
+[![Build Status](https://img.shields.io/travis/ita-social-projects/Forum-Sandbox/master?style=flat-square)](https://travis-ci.org/github/ita-social-projects/Forum-Sandbox)
+[![Coverage Status](https://img.shields.io/gitlab/coverage/ita-social-projects/Forum-Sandbox/master?style=flat-square)](https://coveralls.io)
+[![Github Issues](https://img.shields.io/github/issues/ita-social-projects/Forum-Sandbox?style=flat-square)](https://github.com/ita-social-projects/Forum-Sandbox/issues)
+[![Pending Pull-Requests](https://img.shields.io/github/issues-pr/ita-social-projects/Forum-Sandbox?style=flat-square)](https://github.com/ita-social-projects/Forum-Sandbox/pulls)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - For more on these wonderful  badges, refer to <a href="https://shields.io/" target="_blank">shields.io</a>.
