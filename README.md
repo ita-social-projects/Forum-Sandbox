@@ -251,9 +251,12 @@ $ python manage.py test
 
 > Or Contributors/People
 
-[![@romanmyko](https://avatars.githubusercontent.com/u/123646984?v=4)](https://github.com/romanmyko)
-[![@ohorodnykostap](https://github.com/ohorodnykostap)](https://github.com/ohorodnykostap)
-[![@do-androids-dream](https://avatars.githubusercontent.com/u/116935261?v=4)](https://github.com/do-androids-dream)
+[![@romanmyko](https://avatars.githubusercontent.com/u/123646984?v=4?s=200)](https://github.com/romanmyko)
+[![@ohorodnykostap](https://github.com/ohorodnykostap?s=200)](https://github.com/ohorodnykostap)
+[![@do-androids-dream](https://avatars.githubusercontent.com/u/116935261?v=4?s=200)](https://github.com/do-androids-dream)
+[![@Anorhayz](https://avatars.githubusercontent.com/u/70011041?v=4?s=200)](https://github.com/Anorhayz)
+[![@GodaimeSan22](https://avatars.githubusercontent.com/u/125042739?v=4?s=200)](https://github.com/GodaimeSan22)
+[![@pythonStudent88](https://avatars.githubusercontent.com/u/125041382?v=4?s=200)](https://github.com/pythonStudent88)
  
 
 - You can just grab their GitHub profile image URL
