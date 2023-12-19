@@ -29,7 +29,7 @@
 [![Pending Pull-Requests](https://img.shields.io/github/issues-pr/ita-social-projects/Forum-Sandbox?style=flat-square)](https://github.com/ita-social-projects/Forum-Sandbox/pulls)
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-- For more on these wonderful  badges, refer to <a href="https://shields.io/" target="_blank">shields.io</a>.
+- For more on these wonderful  badges, refer to <a href="#" target="_blank">#</a>.
 
 ---
 
