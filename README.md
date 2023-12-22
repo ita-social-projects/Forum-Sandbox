@@ -74,7 +74,7 @@
 environmental variables
 ```properties
 #db details
-SECRET_KEY= 1111
+SECRET_KEY= key ...
 PG_DB= forum
 PG_USER= postgres
 PG_PASSWORD= postgres
@@ -84,7 +84,7 @@ DB_PORT_OUT= 55432 # Check if there is a conflict with the setup on port 55432
 
 #pgadmin user
 PGADMIN_EMAIL: admin@admin.com
-PGADMIN_PASSWORD: 1
+PGADMIN_PASSWORD: key ...
 
 #SMTP
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
@@ -128,7 +128,7 @@ $ sudo apt install npm
 - Setup .env
 > Setup .env
 ``` shell
-SECRET_KEY= '_y2b#-m(nwf8irkpgs)wpg+-e$#_7^xaevp^me4+u4ov+3fyw*'
+SECRET_KEY= 'key ...'
 PG_DB= forum
 PG_USER= postgres
 PG_PASSWORD= postgres
@@ -167,7 +167,7 @@ $ python manage.py runserver
 - Setup Docker  
 > Setup .env
 ``` shell
-SECRET_KEY= '_y2b#-m(nwf8irkpgs)wpg+-e$#_7^xaevp^me4+u4ov+3fyw*'
+SECRET_KEY= 'key ...'
 PG_DB= forum
 PG_USER= postgres
 PG_PASSWORD= postgres
