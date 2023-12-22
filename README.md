@@ -138,7 +138,7 @@ DB_PORT_OUT= 5432 # Check if there is a conflict with the setup on port 55432
 
 #pgadmin user
 PGADMIN_EMAIL: admin@admin.com
-PGADMIN_PASSWORD: 1
+PGADMIN_PASSWORD: key ...
 
 #SMTP
 EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
