@@ -11,6 +11,12 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+<<<<<<< HEAD
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "forum-sandbox.settings")
+
+application = get_wsgi_application()
+=======
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'forum-sandbox.settings')
+>>>>>>> 3a9d156f9551ceaacf6c98455c45a668cb12aafd
 
 application = get_wsgi_application()
